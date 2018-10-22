@@ -1,21 +1,24 @@
 var http = require('http')
-  , fs   = require('fs')
-  , url  = require('url')
-  , port = 8080;
+    , fs = require('fs')
+    , url = require('url')
+    , port = 8080;
 
-var server = http.createServer (function (req, res) {
-  var uri = url.parse(req.url)
+var server = http.createServer(function (req, res) {
+    var uri = url.parse(req.url)
 
-  switch( uri.pathname ) {
-    case '/':
-      sendFile(res, 'index.html')
-      break
-    case '/index.html':
-      sendFile(res, 'index.html')
-      break
-    default:
-      res.end('404 not found')
-  }
+    switch (uri.pathname) {
+        case '/':
+            sendFile(res, 'index.html')
+            break
+        case '/index.html':
+            sendFile(res, 'index.html')
+            break
+        case 'images/me.jpeg':
+            sendFile(res,'images/me.jpeg')
+            break
+        default:
+            res.end('404 not found')
+    }
 })
 
 server.listen(process.env.PORT || port);
@@ -25,9 +28,9 @@ console.log('listening on 8080')
 
 function sendFile(res, filename) {
 
-  fs.readFile(filename, function(error, content) {
-    res.writeHead(200, {'Content-type': 'text/html'})
-    res.end(content, 'utf-8')
-  })
+    fs.readFile(filename, function (error, content) {
+        res.writeHead(200, {'Content-type': 'text/html'})
+        res.end(content, 'utf-8')
+    })
 
 }
