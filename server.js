@@ -13,23 +13,26 @@ let server = http.createServer(function (req, res) {
         case '/index.html':
             sendFile(res, 'index.html');
             break;
-        case 'images/me2.jpg':
-            sendFile(res,'images/me.jpg');
+        case '/me2.jpg':
+            sendFile(res,'images/me2.jpg');
             break;
-        case 'images/GadgetExplorer.png':
+        case '/GadgetExplorer.png':
             sendFile(res, 'images/GadgetExplorer.png');
             break;
-        case 'images/GadgetExplorer2.png':
+        case '/GadgetExplorer2.png':
             sendFile(res, 'images/GadgetExplorer2.png');
             break;
-        case 'images/Pathfind.png':
+        case '/Pathfind.png':
             sendFile(res, 'images/Pathfind.png');
             break;
-        case 'images/Pathfind2.png':
+        case '/Pathfind2.png':
             sendFile(res, 'images/Pathfind2.png');
             break;
-        case 'images/BookSmart.png':
+        case '/BookSmart.png':
             sendFile(res, 'images/BookSmart.png');
+            break;
+        case '/OIE3460.png':
+            sendFile(res,'images/OIE3460.png');
             break;
         default:
             res.end('404 not found')
@@ -45,5 +48,4 @@ function sendFile(res, filename) {
         res.writeHead(200, {'Content-type': 'text/html'});
         res.end(content, 'utf-8')
     })
-
 }
