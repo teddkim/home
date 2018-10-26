@@ -34,6 +34,15 @@ let server = http.createServer(function (req, res) {
         case '/OIE3460.png':
             sendFile(res,'images/OIE3460.png');
             break;
+        case '/github.png':
+            sendFile(res,'images/github.png');
+            break;
+        case '/instagram.png':
+            sendFile(res,'images/instagram.png');
+            break;
+        case '/email.png':
+            sendFile(res,'images/email.png');
+            break;
         default:
             res.end('404 not found')
     }
